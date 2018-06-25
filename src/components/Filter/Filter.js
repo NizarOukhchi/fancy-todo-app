@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledFilter = styled.div`
-  font-family: Helvetica, sans-serif;
   display: flex;
   align-items: center;
   flex-direction: row;

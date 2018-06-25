@@ -1,30 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 20px 0;
-  margin-top: 50px;
-
-  button {
-    display: flex;
-    flex-basis: auto;
-    margin-top: 20px;
-    margin-left: 30px;
-  }
-`;
-
-const StyledTextField = styled(TextField)`
-  flex-basis: 70%;
-`;
+import { Grid, Cell } from 'styled-css-grid';
 
 export default class InputArea extends Component {
   constructor(props) {
@@ -56,21 +34,26 @@ export default class InputArea extends Component {
 
   render() {
     return (
-      <Wrapper>
-        <StyledTextField
-          label="Add new task"
-          value={this.state.text}
-          onChange={this.handleInputChange}
-          margin="normal"
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={this.handleButtonClick}
-        >
-          + Add
-        </Button>
-      </Wrapper>
+      <Grid columns={12} alignContent="center">
+        <Cell width={9} middle>
+          <TextField
+            label="Add new task"
+            value={this.state.text}
+            onChange={this.handleInputChange}
+            margin="normal"
+          />
+        </Cell>
+        <Cell width={3} middle>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.handleButtonClick}
+            style={{ top: '10px' }}
+          >
+            + Add
+          </Button>
+        </Cell>
+      </Grid>
     );
   }
 }

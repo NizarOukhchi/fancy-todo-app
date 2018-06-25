@@ -27,10 +27,19 @@ describe('Filter', () => {
   it('call the right function when a filter is clicked', () => {
     const setFilter = jest.fn();
     const wrapper = shallow(<Filter setFilter={setFilter} />);
+
+    const allFilter = wrapper.find('div a').at(0);
+    allFilter.simulate('click');
+
     const notCompletedFilter = wrapper.find('div a').at(1);
     notCompletedFilter.simulate('click');
 
-    expect(setFilter.mock.calls.length).toBe(1);
-    expect(setFilter.mock.calls[0][0]).toBe('NOT_COMPLETED');
+    const completedFilter = wrapper.find('div a').at(2);
+    completedFilter.simulate('click');
+
+    expect(setFilter.mock.calls.length).toBe(3);
+    expect(setFilter.mock.calls[0][0]).toBe('ALL');
+    expect(setFilter.mock.calls[1][0]).toBe('NOT_COMPLETED');
+    expect(setFilter.mock.calls[2][0]).toBe('COMPLETED');
   });
 });

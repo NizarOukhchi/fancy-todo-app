@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
+
 import TodoContainer from './containers/TodosContainer';
 import ActivitiesContainer from './containers/ActivitiesContainer';
 
@@ -12,12 +13,12 @@ const StyledPaper = styled(Paper)`
   margin: 20px auto;
 
   > div:nth-child(1) {
-    width: calc(100% / 12 * 7);
+    width: calc(100% / 12 * 8);
     padding: 30px 50px;
   }
 
   > div:nth-child(2) {
-    width: calc(100% / 12 * 5);
+    width: calc(100% / 12 * 4);
     padding: 30px 50px;
   }
 `;
